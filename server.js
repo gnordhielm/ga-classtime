@@ -1,18 +1,29 @@
 var express = require('express'),
-	path = require('path')
+	// start app
+	app = express(),
+	path = require('path'),
+	http = require('http').Server(app),
+	io = require('socket.io')(http),
 	port = process.env.PORT || 3000
 
-// Start app
-var app = express()
-
-// Set up public directory
+// Set public directory
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Root route
+// Routes
 app.get('/', function(req, res){
-	res.sendFile(__dirname + '/index.html')
-});
+	res.sendFile(__dirname + '/public/student.html')
+})
 
-app.listen(port, function() {
+app.get('/teacher', function(req, res){
+	res.sendFile(__dirname + '/public/teacher.html')
+})
+
+// Sockets
+
+io.on('connection', function(socket) {
+	console.log('a user connected')
+})
+
+http.listen(port, function() {
 	console.log('Listening on', port)
 })

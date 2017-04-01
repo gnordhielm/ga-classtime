@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i');
+
+/* general styles */
+
+/** {
+	transition: all .15s linear;
+}*/
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #fefefe;
+
+	font-family: "Roboto", sans-serif;
+}
+
+#wrapper {
+	width: 450px;
+	margin: 50px auto;
+}
+
+h1 {
+	color: #263238;
+	margin: 0;
+}
+
+h2 {
+	font-size: 20px;
+	font-style: italic;
+	color: #364651;
+	margin:10px 0;
+}
+
+p {
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+/* form styles */
+
+input {
+	outline: none;
+	font-size: 15px;
+	font-family: "Roboto", sans-serif;
+}
+
+/* teacher tracker styles */
+
+li {
+	margin: 10px 0 20px -40px;
+}
+
+li:first-child {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.bar {
+	padding-bottom: 3px;
+	height: 5px;
+	width: 100%;
+}
+
+li:first-child > .bar {
+	height: 20px;
+}
+
+.notch {
+	background: #77909d;
+	float: left;
+	margin-right: 3px;
+
+	height: 100%;
+	width: 10px;
+}
+
+li:first-child .notch {
+	margin-right: 5px;
+	height: 100%;
+	width: 15px;
+
+}
+
+#tracker {
+	width: 400px;
+}
+
+.item-complete{
+	color: #c2e988;
+	font-weight: bold;
+}
+
+.complete{
+	background: #c2e988;
+}
+
+.errors{
+	background: #ffcc63;
+}
+
+.help{
+	background: #f27076;
+}
+
+.clear{
+	background: #77909d;
+}
+
+/* student tracker styles */
+
+#student-list p {
+
+}
+
+.selectors {
+
+}
+
+.selector {
+	float: left;
+
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	margin-right: 5px;
+	cursor: pointer;
+
+	border: 3px solid #77909d;
+}
+
+.selector.complete{
+	border: 3px solid #c2e988;
+	background: none;
+}
+
+.selector.errors{
+	border: 3px solid #ffcc63;
+	background: none;
+}
+
+.selector.help{
+	border: 3px solid #f27076;
+	background: none;
+}
+
+.selector.clear{
+	border: 3px solid #77909d;
+	background: none;
+}
+
+.selector.complete:hover{
+	background: #c2e988;
+}
+
+.selector.errors:hover{
+	background: #ffcc63;
+}
+
+.selector.help:hover{
+	background: #f27076;
+}
+
+.selector.clear:hover{
+	background: #77909d;
+}
+
+.selector.complete.selected{
+	background: #c2e988;
+}
+
+.selector.errors.selected{
+	background: #ffcc63;
+}
+
+.selector.help.selected{
+	background: #f27076;
+}
+
+.selector.clear.selected{
+	background: #77909d;
+}
+
+

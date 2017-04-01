@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code-Along Tracker</title>
+	<link rel="stylesheet" type="text/css" href="./teacher.css">
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<script src="/socket.io/socket.io.js"></script>
+
+</head>
+<body>
+	<div id="wrapper">
+		
+		<h1 id="main-title">Tic Tac Toe</h1>
+		<h2><span id="students-count"></span> students</h2>
+
+		<form id="new-form">
+			<input id="new-item" type="text" name="new-item" autocomplete="off">
+		</form>
+
+
+		<ul id="full-list">
+			<li>
+				<div class="bar">
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+				</div>
+				<p>Create file structure</p>
+			</li>
+			<li>
+				<div class="bar">
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					
+				</div>
+				<p>Import scripts</p>
+			</li>
+			<li>
+				<div class="bar">
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					<div class="notch"></div>
+					
+				</div>
+				<p>Set up components</p>
+			</li>
+			<li>
+				<div class="bar">
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					<div class="notch complete"></div>
+					
+				</div>
+				<p class="item-complete">Wire up board</p>
+			</li>				
+		</ul>
+		
+
+
+
+	</div>
+	<script type="text/javascript" src='./teacher.js'></script>
+</body>
+</html>
