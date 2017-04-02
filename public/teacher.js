@@ -18,7 +18,7 @@ function generateItemHTML(text) {
 	var tags = ['<li><div class="bar">', `</div><p>${text}</p></li>`],
 		content = ''
 	for (var i = 0; i < studentCount; i++) {
-		content += '<div class="notch"></div>'
+		content += '<div class="notch clear"></div>'
 	}
 	return tags[0] + content + tags[1]
 }
@@ -32,8 +32,17 @@ function updateDOM() {
 	// update student count
 	$students.text(studentCount)
 
+	// color squares appropriately
+	// $( $('#full-list').children() ).find('.notch').attr('class', 'notch')
+	// for (var i = 0; i < tasks.length; i++) {
+	// 	$notches = $( $('#full-list').children()[i] ).find('.notch')
+	// 	for (var j = 0; j < $notches.length; j++) {
+	// 		$notches[j]
+	// 	}
+	// }
+
 	// make things green that need to be green.
-	// make sure things have styles to represent the data
+
 }
 
 
@@ -62,7 +71,7 @@ $( document ).ready(function() {
 		if (text && studentCount) {
 			$list.prepend(generateItemHTML(text))
 
-			tasks.push({id: tasks.length, text: text, complete: 0, errors:0, help:0})
+			tasks.push({id: tasks.length, text: text, complete: 0, errors:0, help:0, clear:studentCount})
 			socket.emit('push-item', tasks)
 
 			$newItem.val('')
@@ -77,9 +86,22 @@ $( document ).ready(function() {
 	// update a task
 
 	socket.on('mark-item', function(data) {
-		console.log('mark item', data)
-		// actually do something with the fucking data.
-		updateDOM()
+		
+		tasks[data.id][data.was]--
+		tasks[data.id][data.is]++
+
+
+		// find first matching notch
+		$notches = $( $('#full-list').children()[(tasks.length-1) - data.id] ).find('.notch')
+
+		for (var i = 0; i < $notches.length; i++) {
+			if ($notches[i].className.search(data.was) !== -1) {
+				$notches[i].className = `notch ${data.is}`
+				break
+			}
+		}
+
+		// make this task green if it should be
 	})
 
 	// disconnections

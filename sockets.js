@@ -1,4 +1,5 @@
-var io = require('socket.io')()
+var io = require('socket.io')(),
+	connectedUsers = 0
 
 io.on('connection', function(socket) {
 
@@ -7,11 +8,13 @@ io.on('connection', function(socket) {
 	socket.on('teacher-connected', function() {
 		io.emit('teacher-connected')
 		console.log('A teacher has connected.')
+		connectedUsers++
 	})
 
 	socket.on('student-connected', function() {
 		io.emit('student-connected')
 		console.log('A student has connected.')
+		connectedUsers++
 	})
 
 	// Task creation/updates
@@ -28,6 +31,8 @@ io.on('connection', function(socket) {
 
 	socket.on('disconnect', function() {
 		io.emit('disconnect')
+		console.log('A user has disconnected.')
+		connectedUsers--
 	})
 
 })
