@@ -87,13 +87,15 @@ $( document ).ready(function() {
 
 	socket.on('mark-item', function(data) {
 		
+		// update data
+
 		tasks[data.id][data.was]--
 		tasks[data.id][data.is]++
 
+		$item = $( $('#full-list').children()[(tasks.length-1) - data.id] )
+		$notches = $item.find('.notch')
 
 		// find first matching notch
-		$notches = $( $('#full-list').children()[(tasks.length-1) - data.id] ).find('.notch')
-
 		for (var i = 0; i < $notches.length; i++) {
 			if ($notches[i].className.search(data.was) !== -1) {
 				$notches[i].className = `notch ${data.is}`
@@ -102,6 +104,12 @@ $( document ).ready(function() {
 		}
 
 		// make this task green if it should be
+		if (tasks[data.id].complete + tasks[data.id].errors === studentCount ) {
+			$item.addClass('li-complete')
+		} else {
+			$item.removeClass('li-complete')
+		}
+
 	})
 
 	// disconnections

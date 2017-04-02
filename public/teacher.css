@@ -94,6 +94,10 @@ li:first-child .notch {
 	font-weight: bold;
 }
 
+.li-complete{
+	color: #c2e988;
+}
+
 .complete{
 	background: #c2e988;
 }
